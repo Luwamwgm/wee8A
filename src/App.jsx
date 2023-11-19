@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
 import './App.css'
@@ -6,6 +6,10 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  useEffect(() =>{
+const increaseEvery = setInterval(()=> {setCount((prevCount)=>prevCount+1);},3000);
+return () => clearInterval(increaseEvery); 
+   }, []);
   const increase = () => {
     setCount ( count => count +1);
   };
